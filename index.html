@@ -6,7 +6,7 @@
 <title>Pranav Wadhai | Portfolio</title>
 <meta name="description" content="Pranav Wadhai, engineering student at Vishwakarma University, Pune. Builder of VEGA, a hybrid AI assistant.">
 <meta name="theme-color" content="#060A12">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 30'%3E%3Cpath d='M3 4H11L18 25L25 4H33' fill='none' stroke='%2338D6FF' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 1 28 28'%3E%3Cpath d='M10 26V4H23L28 9V14L23 19H10' fill='none' stroke='%2338D6FF' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <script>
 /* Runs before first paint: decide whether the boot sequence plays (once per tab session). */
 try{if(!sessionStorage.getItem('pw_boot')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('booting');}}catch(e){}
@@ -241,11 +241,11 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
 <div class="wrap">
   <aside class="index">
     <div class="brand">
-      <svg class="vmark" viewBox="0 0 36 30" width="34" height="28" aria-hidden="true">
+      <svg class="vmark" viewBox="5 1 28 28" width="30" height="30" aria-hidden="true">
         <defs><linearGradient id="vg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38D6FF"/><stop offset="1" stop-color="#8B6BFF"/></linearGradient></defs>
-        <path d="M3 4 H11 L18 25 L25 4 H33" fill="none" stroke="url(#vg)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-        <circle cx="3" cy="4" r="2.4" fill="url(#vg)"/><circle cx="33" cy="4" r="2.4" fill="url(#vg)"/><circle cx="18" cy="25" r="2.6" fill="url(#vg)"/>
-        <circle cx="11" cy="4" r="1.5" fill="#E7EEFB"/><circle cx="25" cy="4" r="1.5" fill="#E7EEFB"/>
+        <path d="M10 26 V4 H23 L28 9 V14 L23 19 H10" fill="none" stroke="url(#vg)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="10" cy="26" r="2.4" fill="url(#vg)"/><circle cx="10" cy="4" r="2.4" fill="url(#vg)"/><circle cx="10" cy="19" r="2.4" fill="url(#vg)"/>
+        <circle cx="23" cy="4" r="1.5" fill="#E7EEFB"/><circle cx="28" cy="9" r="1.5" fill="#E7EEFB"/><circle cx="28" cy="14" r="1.5" fill="#E7EEFB"/><circle cx="23" cy="19" r="1.5" fill="#E7EEFB"/>
       </svg>
       <span>PRANAV</span>
     </div>
@@ -333,7 +333,7 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
         <ul>
           <li><b>Model routing.</b> Quick local-intent requests go to Groq for speed. Everything else goes to Gemini, with automatic fallback if Groq fails.</li>
           <li><b>Agent loop.</b> A plan, act and check loop handles multi-step requests.</li>
-          <li><b>Boot sequence.</b> A circuit-line V mark draws itself in, then morphs into the 650-particle orb at the top of this page.</li>
+          <li><b>Boot sequence.</b> A circuit-line V mark draws itself in, then morphs into the 650-particle orb. This page borrows the same idea with a P for Pranav.</li>
           <li><b>Accounts and storage.</b> bcrypt authentication, Postgres on Neon, and a SQLite fallback.</li>
           <li><b>Next.</b> Background tasks that run unattended, and a second brain that pulls context from Google Drive.</li>
         </ul>
@@ -553,7 +553,7 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
     var el = document.getElementById('boot'), cv = document.getElementById('bootc');
     var pctEl = document.getElementById('bootpct'), stEl = document.getElementById('bootst'), skip = document.getElementById('bootskip');
     var ctx = cv.getContext('2d'), N = 650, i, done = false, revealed = false, t0 = 0, lastPct = -1, lastSt = '';
-    var P = [[3, 4], [11, 4], [18, 25], [25, 4], [33, 4]];
+    var P = [[10, 26], [10, 4], [23, 4], [28, 9], [28, 14], [23, 19], [10, 19]], NP = P.length;
     var W, H, sc, pp, seg, cum, tot, lg, ccx, ccy, R, S;
     var sx = [], sy = [], ex = [], ey = [], ed = [], ec = [], stag = [];
 
@@ -561,18 +561,20 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
       W = innerWidth; H = innerHeight;
       cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       sc = Math.min(W * 0.5, 360) / 30;
-      var ox = W / 2 - 18 * sc, oy = H / 2 - 14.5 * sc;
+      var ox = W / 2 - 19 * sc, oy = H / 2 - 15 * sc;
       pp = P.map(function (p) { return [ox + p[0] * sc, oy + p[1] * sc]; });
       seg = []; cum = [0]; tot = 0;
-      for (i = 1; i < 5; i++) { var l = Math.hypot(pp[i][0] - pp[i - 1][0], pp[i][1] - pp[i - 1][1]); seg.push(l); tot += l; cum.push(tot); }
-      lg = ctx.createLinearGradient(pp[0][0], pp[0][1], pp[4][0], pp[4][1]);
+      for (i = 1; i < NP; i++) { var l = Math.hypot(pp[i][0] - pp[i - 1][0], pp[i][1] - pp[i - 1][1]); seg.push(l); tot += l; cum.push(tot); }
+      lg = ctx.createLinearGradient(pp[1][0], pp[1][1], pp[4][0], pp[0][1]);
       lg.addColorStop(0, '#38D6FF'); lg.addColorStop(1, '#8B6BFF');
-      var d, k, f;
+      var d, k, f, smp = [];
       for (i = 0; i < N; i++) {
-        d = i / (N - 1) * tot; k = 0; while (k < 3 && d > seg[k]) { d -= seg[k]; k++; }
+        d = i / (N - 1) * tot; k = 0; while (k < NP - 2 && d > seg[k]) { d -= seg[k]; k++; }
         f = seg[k] ? d / seg[k] : 0;
-        sx[i] = pp[k][0] + (pp[k + 1][0] - pp[k][0]) * f; sy[i] = pp[k][1] + (pp[k + 1][1] - pp[k][1]) * f;
+        smp.push([pp[k][0] + (pp[k + 1][0] - pp[k][0]) * f, pp[k][1] + (pp[k + 1][1] - pp[k][1]) * f]);
       }
+      smp.sort(function (a, b) { return a[0] - b[0]; });
+      for (i = 0; i < N; i++) { sx[i] = smp[i][0]; sy[i] = smp[i][1]; }
       // Target = where the hero orb sits (falls back to screen centre if it is off screen)
       var hb = document.querySelector('.orbbox').getBoundingClientRect();
       ccx = hb.left + hb.width / 2; ccy = hb.top + hb.height / 2;
@@ -617,7 +619,7 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
         ctx.lineJoin = 'round'; ctx.lineCap = 'round';
         ctx.beginPath(); ctx.moveTo(pp[0][0], pp[0][1]);
         var hx = pp[0][0], hy = pp[0][1];
-        for (k = 0; k < 4; k++) {
+        for (k = 0; k < NP - 1; k++) {
           var take = Math.min(seg[k], len - cum[k]); if (take <= 0) break;
           var f = take / seg[k]; hx = pp[k][0] + (pp[k + 1][0] - pp[k][0]) * f; hy = pp[k][1] + (pp[k + 1][1] - pp[k][1]) * f;
           ctx.lineTo(hx, hy);
@@ -626,10 +628,10 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
         ctx.globalAlpha = 0.22 * lineA; ctx.lineWidth = sc * 1.1; ctx.stroke();
         ctx.globalAlpha = lineA; ctx.lineWidth = Math.max(2, sc * 0.28); ctx.stroke();
         // nodes pop in as the line reaches them
-        for (k = 0; k < 5; k++) {
+        for (k = 0; k < NP; k++) {
           if (len + 0.5 < cum[k]) continue;
-          var big = (k === 0 || k === 2 || k === 4);
-          ctx.globalAlpha = lineA; ctx.fillStyle = big ? (k === 2 ? '#8B6BFF' : '#38D6FF') : '#E7EEFB';
+          var big = (k === 0 || k === 1 || k === NP - 1);
+          ctx.globalAlpha = lineA; ctx.fillStyle = big ? (k === 1 ? '#8B6BFF' : '#38D6FF') : '#E7EEFB';
           ctx.beginPath(); ctx.arc(pp[k][0], pp[k][1], big ? sc * 0.34 : sc * 0.2, 0, 6.2832); ctx.fill();
         }
         if (dp < 1) { ctx.globalAlpha = 0.9; ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(hx, hy, sc * 0.3, 0, 6.2832); ctx.fill(); }
