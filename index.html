@@ -4,11 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Pranav Portfolio</title>
+<script>
+/* Runs before first paint: decide whether the boot sequence plays (once per tab session). */
+try{if(!sessionStorage.getItem('pw_boot')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('booting');}}catch(e){}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 1 28 28'%3E%3Cpath d='M10 26V4H23L28 9V14L23 19H10' fill='none' stroke='%2338D6FF' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div id="boot" aria-hidden="true">
+  <canvas id="bootc"></canvas>
+  <span class="b tl">VEGA OS / Boot</span>
+  <button id="bootskip" type="button">Skip</button>
+  <span class="b bl" id="bootst">Drawing circuit</span>
+  <span class="b br" id="bootpct">0%</span>
+</div>
 
 <div class="wrap">
   <aside class="index">
@@ -45,7 +57,7 @@
       </div>
 
       <div class="orbbox">
-        <canvas id="orb" role="img" aria-label="Animated particle orb with lightning tendrils, taken from the VEGA assistant"></canvas>
+        <canvas id="orb" class="orbc" role="img" aria-label="Animated particle orb with lightning tendrils, taken from the VEGA assistant"></canvas>
         <span class="readout tl">VEGA OS</span>
         <span class="readout tr"><span class="dot"></span>Online</span>
         <span class="readout bl">Orb / 650 particles</span>
@@ -95,7 +107,7 @@
         <div>
           <div class="proj-head">
             <div><span class="status">Live</span><h3>VEGA</h3></div>
-            <canvas id="orb2" class="orb-s" role="img" aria-label="Small VEGA orb"></canvas>
+            <canvas id="orb2" class="orb-s orbc" role="img" aria-label="Small VEGA orb"></canvas>
           </div>
           <p>A hybrid AI assistant PWA. VEGA classifies each message and sends it to the model that suits it, then streams the answer back with a fallback if one provider fails.</p>
           <p>VEGA is a vibe-coded project. I direct an AI coding assistant, review what it builds, and iterate until it works.</p>

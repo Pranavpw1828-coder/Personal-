@@ -203,3 +203,19 @@ footer { color: var(--muted); font-family: var(--font-mono); font-size: 12px; le
   html { scroll-behavior: auto; }
   .tag::after, .dot { animation: none; }
 }
+
+/* Boot overlay */
+html.booting { overflow: hidden; }
+#boot { display: none; position: fixed; inset: 0; z-index: 100; background: var(--bg); transition: opacity .5s ease; }
+.booting #boot { display: block; }
+.booting.reveal #boot { opacity: 0; pointer-events: none; }
+#bootc { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#boot .b { position: absolute; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+#boot .tl { top: max(16px, env(safe-area-inset-top, 0px)); left: 16px; }
+#boot .bl { bottom: max(16px, env(safe-area-inset-bottom, 0px)); left: 16px; color: var(--cyan); }
+#boot .br { bottom: max(16px, env(safe-area-inset-bottom, 0px)); right: 16px; }
+#bootskip { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); right: 16px; background: transparent; border: 1px solid var(--line-strong); color: var(--muted); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; padding: 6px 12px; cursor: pointer; }
+#bootskip:hover { color: var(--ink); border-color: var(--cyan); }
+.orbc { opacity: 1; transition: opacity .5s ease; }
+.booting .orbc { opacity: 0; }
+.booting.reveal .orbc { opacity: 1; }
