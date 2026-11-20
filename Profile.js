@@ -179,7 +179,6 @@
     function finish() {
       if (done) return; done = true; bootDraw = null; orbsOn = true;
       root.classList.remove('booting', 'reveal'); el.style.display = 'none';
-      try { sessionStorage.setItem('pw_boot', '1'); } catch (e) {}
     }
     function reveal() {
       if (revealed) return; revealed = true; orbsOn = true;

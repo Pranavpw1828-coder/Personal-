@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Pranav Portfolio</title>
 <script>
-/* Runs before first paint: decide whether the boot sequence plays (once per tab session). */
-try{if(!sessionStorage.getItem('pw_boot')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('booting');}}catch(e){}
+/* Runs before first paint: play the boot sequence on every load (skipped only for reduced-motion users). */
+try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('booting');}}catch(e){}
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='5 1 28 28'%3E%3Cpath d='M10 26V4H23L28 9V14L23 19H10' fill='none' stroke='%2338D6FF' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
