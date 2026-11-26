@@ -141,13 +141,14 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documen
         <div>
           <span class="status">Live</span>
           <h3>Weather Dashboard</h3>
-          <p>A weather dashboard where you add any city and see current conditions plus a 5-day forecast. Your list of cities is saved in the browser, and you can switch between °C and °F.</p>
+          <p>A weather dashboard where you add any city and see current conditions, an hourly forecast, chance of rain, UV, pressure, sunrise and sunset, and a 5-day forecast. Each card changes colour with the weather, your cities are saved in the browser, and you can switch between °C and °F.</p>
           <div class="stack"><span>Vanilla JS</span><span>Open-Meteo API</span><span>HTML</span><span>CSS</span></div>
           <p style="margin-top:14px"><a href="weather-dashboard/" rel="noopener">Open the dashboard</a></p>
         </div>
         <ul>
           <li><b>Search.</b> Type a city name and it is looked up through the Open-Meteo geocoding API.</li>
-          <li><b>Cards.</b> Each city shows temperature, feels-like, humidity, wind and a 5-day forecast.</li>
+          <li><b>Cards.</b> Each city shows temperature, feels-like, humidity, wind, the next 24 hours, rain chance, UV, pressure, visibility, sunrise and sunset, and a 5-day forecast.</li>
+          <li><b>Weather themes.</b> The card background changes for sunny, cloudy, rain, storm, snow and fog, with a separate night look.</li>
           <li><b>Saved cities.</b> Your list is stored in the browser, with Pune, Mumbai and London as the defaults.</li>
         </ul>
       </article>

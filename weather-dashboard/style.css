@@ -213,8 +213,6 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 4px;
-  border-top: 1px solid var(--card-border);
-  padding-top: 14px;
 }
 
 .day {
@@ -237,6 +235,101 @@ main {
   white-space: nowrap;
   font-size: 0.74rem;
 }
+
+.day .d-rain {
+  font-size: 0.68rem;
+  margin-top: 2px;
+}
+
+.card .rain-now {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 6px;
+}
+
+.section-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 16px 0 8px;
+}
+
+/* Hourly strip: scrolls sideways */
+.hourly {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.hour {
+  flex: 0 0 auto;
+  min-width: 54px;
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--muted);
+  background: var(--surface-subtle);
+  border-radius: 10px;
+  padding: 8px 4px;
+}
+
+.hour:first-child {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--text);
+}
+
+.hour .h-icon {
+  font-size: 1.3rem;
+  margin: 4px 0;
+}
+
+.hour .h-temp {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.hour .h-rain {
+  font-size: 0.68rem;
+  margin-top: 2px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 6px;
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--muted);
+  background: var(--surface-subtle);
+  border-radius: 12px;
+  padding: 10px 6px;
+}
+
+.details strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+
+/* Card backgrounds that follow the weather */
+.card[class*="theme-"] {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-sunny        { --muted: #dbe7f3; background: linear-gradient(155deg, #1a4f85 0%, #256aa6 100%); }
+.theme-clear-night  { --muted: #c3cde6; background: linear-gradient(155deg, #0b1530 0%, #1c2c5a 100%); }
+.theme-cloudy       { --muted: #d5dde8; background: linear-gradient(155deg, #3b4a5e 0%, #55657b 100%); }
+.theme-cloudy-night { --muted: #c5ceda; background: linear-gradient(155deg, #1f2733 0%, #323d4e 100%); }
+.theme-rain         { --muted: #cddbe8; background: linear-gradient(155deg, #1f3a54 0%, #2f5472 100%); }
+.theme-storm        { --muted: #d0c9e6; background: linear-gradient(155deg, #271f3d 0%, #3d2f5c 100%); }
+.theme-snow         { --muted: #d6e3ee; background: linear-gradient(155deg, #35505f 0%, #4d6a82 100%); }
+.theme-fog          { --muted: #dbe1e7; background: linear-gradient(155deg, #46505a 0%, #5f6b77 100%); }
 
 footer {
   text-align: center;
